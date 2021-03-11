@@ -1,0 +1,17 @@
+<%- include ('partials/header'); -%>
+<h1 class='display-2'><%= camp.title %></h1>
+<img src="<%=camp.image%>">
+<p><%=camp.author.username%> <a href="/campground/<%=camp._id%>/edit"><button>edit</button></a></p>
+<form action="/campground/<%=camp._id%>?_method=DELETE" method="POST"><button class="btn btn-danger">DELETE</button>
+</form>
+<h4><%= camp.details %> </h4>
+
+<% camp.comments.forEach(function(comments){ %>
+
+<strong><%= comments.author.username %></strong> - <%= comments.text%>
+
+<% }) %>
+<a href="/campgrouds/<%= camp._id%>/comments/new"><button class=" btn btn-primary">Add
+        Comment</button></a>
+
+<%- include ('partials/footer'); -%>

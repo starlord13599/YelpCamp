@@ -1,0 +1,33 @@
+<%- include ('partials/header'); -%>
+
+<div class="container">
+    <div class="jumbotron">
+        <h1>Welcome to YelpCamp</h1>
+        <h4>Have a look to our latest Campgrounds<h4>
+                <button type="button" class="btn btn-info btn-lg"><a href="/campgrounds/new"
+                        style="color: aliceblue;">Add new Campgrounds</a></button>
+    </div>
+
+
+    <div class="row">
+        <div class="col-xl-12">
+            <h2>Some recent Campgrounds</h2>
+        </div>
+    </div>
+    <div class="row" style="display: flex; flex-wrap: wrap;">
+        <% campg.forEach(function(cg){ %>
+
+        <div class="col-sm-12 col-xs-12 col-lg-4 col-md-6 col-xl-4">
+            <div class="card" style="width: 18rem;margin-top: 5%;">
+                <img src="<%=cg['image'] %>" class="card-img-top">
+                <div class="card-body">
+                    <p class="card-text"><%=cg['title'] %></p>
+                    <a href="/campgrounds/<%= cg._id %>" class="btn btn-primary">More Info</a>
+                </div>
+            </div>
+        </div>
+
+        <%});%>
+    </div>
+</div>
+<%- include ('partials/footer'); -%>

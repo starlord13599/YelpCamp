@@ -1,0 +1,13 @@
+<%- include ('partials/header'); -%>
+<div class="container" style="text-align: center;">
+    <h1>This is the newCampground Add page</h1>
+
+    <form action="/campgrounds/<%= campg._id %>?_method=PUT" method="POST" class="form-group"
+        style="width: 30%; margin: 5% auto;">
+        <input class="form-control form-group" type="text" name="cg[title]" value="<%= campg.title %>">
+        <input class="form-control form-group" type="text" name="cg[image]" value="<%=campg.image%>">
+        <input class="form-control form-group" type="text" name="cg[details]" value="<%=campg.details %>">
+        <button class="form-control form-group btn btn-primary">Submit</button>
+    </form>
+</div>
+<%- include ('partials/footer'); -%>
